@@ -1,4 +1,4 @@
-x = 5
+"""x = 5
 y = "Hello World CHAT"
 
 if x > 2:
@@ -24,3 +24,20 @@ names = ["John", "Rajesh", "Lina"]
 x,y,z = names
 
 print(x,y,z)
+
+def testfunction():
+  global rc
+  rc = "jajajajajajja"
+  x,y,z = "Timmeh", "Guapo", "Rodrigo"
+  print(x,y,z + " are Tom's Friends!", rc )
+
+testfunction()
+print(x,y,z + "Are toms friends!", rc )"""
+
+#Common Name Generator
+#with only 4 premade names
+names = ["Dave", "Ragreh", "Jimmy","Timmy"]
+a = b = c = d = names 
+random_num = input("Enter a Number to get your premade name(0-4):")
+x = int(random_num)
+print(names[0+x])
