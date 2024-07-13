@@ -132,3 +132,17 @@ def choice3():
         elif c1 == "multiverse":
             print("Right but wrong. You are a rat. You are a rat. The cat then eats you. Welp that was a sad ending. GAME OVER")
 choice3()
+
+
+nums = [1, 2, 3, 4, 5]
+
+for num in nums:
+  print(num + 1)
+
+for i in range(3):
+  print(i)
+
+teams = [['KADU', 'LIMA'], ['Abhishek', 'JOHNNY'], ['REGGS', 'RAAA']]
+for team in teams:
+  for name in team:
+    print(name)
