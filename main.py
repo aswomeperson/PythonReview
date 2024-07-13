@@ -115,7 +115,7 @@ def choice3():
         elif c1 == "multiverse":
             print("Right but wrong. You are a rat. You are a rat. The cat then eats you. Welp that was a sad ending. GAME OVER")
 choice3()
-'''
+
 #Loops
 for KAD in range(5):
     print(KAD)
@@ -168,5 +168,36 @@ while guess > 0:
         print("Sorry But Thats TOO HIGH")
 if guess == 0:
     print("YOU LOST!!!!")
+'''
+for ra in range(10):
+    if ra == 5:
+        break
+    print(ra)
+    if ra == 2:
+        continue
+    print(ra)
+    if ra == 7:
+        pass
+    print(ra)
+        
+def treasurechest():
 
+  print("Welcome to the Mystery CAGE!")
+  items = ["gold coin", "rusty key", "empty box", "magic potion", "dragon egg"]
+  for i in range(len(items)):
+    print(f"Item {i+1}:")
+    item = items[i]
+    if item == "dragon egg":
+      print("Whoa! You found a dragon egg! This is too valuable, I'll keep it safe heheh...")
+      break  #this will stop the loop
+    elif item == "empty box":
+      print("This is disappointing. You got nothing.")
+      continue  # Skip to THE NEXT ITEM
+    elif item == "rusty key":
+      print("You found a key! You should probably clean it.")
+      pass  
+    else:
+      print(f"You found a {item}! It's yours to keep.")
+
+treasurechest()
     
