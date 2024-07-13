@@ -86,15 +86,16 @@ global name
 name = input("Welcome, before we can EVEN start, what is your name? ")
 print("Great! Nice to meet you", name)
 
+# Introduction function
 def intro():
     print("Welcome to the Wild Adventure of Ricky the RAT!\n")
     print("You are a rat, and you are trying to get to the end of the world. You are currently trying to escape mysterious monsters that look like hairless monkeys. Humans! That's what they call themselves, well either way, you are a rat, so you want to steal as much cheese, but NOT get caught by them. Understand? Great!\n")
 intro()
 
-def choice1():
-    c1 = input("You are in Gizmo's kitchen and see Gizmo, faced away from you watching TV. Will you run to the kitchen to look for cheese, or will you go try to interact and watch TV with him? (run/watch) \n")
 
+def choice1():
     global condition
+    c1 = input("You are in Gizmo's kitchen and see Gizmo, faced away from you watching TV. Will you run to the kitchen to look for cheese, or will you go try to interact and watch TV with him? (run/watch) \n")
     if c1 == "run":
         print("You run to the kitchen to quickly grimace and look for food but it takes time... \n")
         condition = 0
@@ -102,6 +103,7 @@ def choice1():
         print("You go and try to watch TV with Gizmo, clearly interested in whatever he is doing but he sees you and jumps in fear. 'AHhhhh!' He grabs his shotgun and shoots you, but he missed! You run and scamper off... \n")
         condition = 1
 choice1()
+
 
 def choice2():
     global condition
@@ -115,18 +117,18 @@ def choice2():
     elif condition == 1:
         c2 = input("You run, but Gizmo catches up to you until you are cornered. You realize that there is no escape so you only have a option to fight. You see salt next to you and realize you can blow the dust into his eyes and mouth, temporarily restraining him. You look to your right and see a knife. What will you use? (knife/salt) \n")
         if c2 == "knife":
-            print("You grab the knife that is 10 times bigger then you and charge at Gizmo, like a true warrior. You imagine defeating him as victory comes closer to you. Oh yeah I forgot to mention the catch- you NEVER bring a knife to a gunfight. As soon as you're in range he clicks the trigger and you are vaporized. I would have said 'Game Over' but im in Shock. \n")
+            print("You grab the knife that is 10 times bigger than you and charge at Gizmo, like a true warrior. You imagine defeating him as victory comes closer to you. Oh yeah I forgot to mention the catch- you NEVER bring a knife to a gunfight. As soon as you're in range he clicks the trigger and you are vaporized. I would have said 'Game Over' but I'm in Shock. \n")
         elif c2 == "salt":
-            print("You grab the salt and throw it at Gizmo's eyes and mouth. He is confused for a second but then the pain hits him. Then you attack him so badly I cant even describe it. You Won-THE VICIOUS ENDING \n")
+            print("You grab the salt and throw it at Gizmo's eyes and mouth. He is confused for a second but then the pain hits him. Then you attack him so badly I can't even describe it. You Won - THE VICIOUS ENDING \n")
 choice2()
+
+# The LAST choice
 def choice3():
-  if condition == 2:
-    c1 == input("As you walk off, you can see the door in the distance! Yes, you might be able to get out of here, but as soon as you are about to reach the door, you see a monster with 4 legs, a tail, and a head. It looks like a cat! You see that there is no other way of leaving so this is it. You either win or loose. The cat says to you 'I will let you go if you can answer my riddle. If you get it wrong, you will be my meal!'. \n 
-    I am both vast and wide\n
-    Home to stars that may have died\n Dark and light, and full of might \n Holding galaxies in my sight.(universe,multiverse) \n")
-                if c1 == "universe:"
-                  print("Correct! Hmm, you are smart for a rat. Keep up the work. You then walk off into the distance. You Win! THE TRUE ENDING")
-                elif c1 == "multiverse":
-                  print("Right but wrong. You are a rat. You are a rat. The cat then eats you. Welp that was a sad ending. GAME OVER")
-
-
+    global condition
+    if condition == 2:
+        c1 = input("As you walk off, you can see the door in the distance! Yes, you might be able to get out of here, but as soon as you are about to reach the door, you see a monster with 4 legs, a tail, and a head. It looks like a cat! You see that there is no other way of leaving so this is it. You either win or lose. The cat says to you 'I will let you go if you can answer my riddle. If you get it wrong, you will be my meal!'. \nI am both vast and wide\nHome to stars that may have died\nDark and light, and full of might\nHolding galaxies in my sight. (universe/multiverse) \n")
+        if c1 == "universe":
+            print("Correct! Hmm, you are smart for a rat. Keep up the work. You then walk off into the distance. You Win! THE TRUE ENDING")
+        elif c1 == "multiverse":
+            print("Right but wrong. You are a rat. You are a rat. The cat then eats you. Welp that was a sad ending. GAME OVER")
+choice3()
