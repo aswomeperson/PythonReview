@@ -1,47 +1,41 @@
-"""x = 5
+'''
+x = 5
 y = "Hello World CHAT"
 
 if x > 2:
   print(y)
 
-#Beginner Stuff doing again- Refreshing my MEMORY
+# Beginner Stuff doing again- Refreshing my MEMORY
 
 Name = "John"
-
 Woman_Name = "Mary"
-
 print(Name + " and " + Woman_Name + " are Sisters")
 
 x = str(3)
-
 x = int(4)
-
 x = float(3)
-
 print(type(x))
 
 names = ["John", "Rajesh", "Lina"]
-x,y,z = names
-
-print(x,y,z)
+x, y, z = names
+print(x, y, z)
 
 def testfunction():
   global rc
   rc = "jajajajajajja"
-  x,y,z = "Timmeh", "Guapo", "Rodrigo"
-  print(x,y,z + " are Tom's Friends!", rc )
+  x, y, z = "Timmeh", "Guapo", "Rodrigo"
+  print(x, y, z + " are Tom's Friends!", rc )
 
 testfunction()
-print(x,y,z + "Are toms friends!", rc )
+print(x, y, z + "Are toms friends!", rc )
 
-#Common Name Generator
-#with only 4 premade names
+# Common Name Generator
+# with only 4 premade names
 names = ["Dave", "Ragreh", "Jimmy","Timmy"]
 a = b = c = d = names 
 random_num = input("Enter a Number to get your premade name(0-4):")
 x = int(random_num)
 print(names[0+x])
-#simple basic stuff esentially
 
 def main():
   print("This is text coming from the main function of the program!")
@@ -53,7 +47,7 @@ def secondary_function():
 if __name__ == '__main__':
   main()
 
-#Python Operators/Calculator
+# Python Operators/Calculator
 basic = float(input("Enter a number:"))
 basic2 = float(input("Enter 2nd number:"))
 logic = input("Add Operator(+,-,*,/):")
@@ -71,17 +65,8 @@ else:
   print("Please put in a valid operator! (+,-,*,/)")
   logic = input("Add Operator(+,-,*,/):")
 print(logic)
-"""
-#Story Game
-ascii_art = r"""
-(\,/)
-                            oo   '''//,        _
-                          ,/_;~,        \,    / '
-           GIZZ           "'   \    (    \    !
-                                ',|  \    |__.'
-                                '~  '~----''
-"""
-print(ascii_art)
+
+
 global name
 name = input("Welcome, before we can EVEN start, what is your name? ")
 print("Great! Nice to meet you", name)
@@ -91,7 +76,6 @@ def intro():
     print("Welcome to the Wild Adventure of Ricky the RAT!\n")
     print("You are a rat, and you are trying to get to the end of the world. You are currently trying to escape mysterious monsters that look like hairless monkeys. Humans! That's what they call themselves, well either way, you are a rat, so you want to steal as much cheese, but NOT get caught by them. Understand? Great!\n")
 intro()
-
 
 def choice1():
     global condition
@@ -103,7 +87,6 @@ def choice1():
         print("You go and try to watch TV with Gizmo, clearly interested in whatever he is doing but he sees you and jumps in fear. 'AHhhhh!' He grabs his shotgun and shoots you, but he missed! You run and scamper off... \n")
         condition = 1
 choice1()
-
 
 def choice2():
     global condition
@@ -132,17 +115,58 @@ def choice3():
         elif c1 == "multiverse":
             print("Right but wrong. You are a rat. You are a rat. The cat then eats you. Welp that was a sad ending. GAME OVER")
 choice3()
+'''
+#Loops
+for KAD in range(5):
+    print(KAD)
 
+BIG_C = 0
+while BIG_C < 5:
+    print(BIG_C)
+    BIG_C+=1
+BIG_C = 0
+#TWO WAYS TO DO IT
+while True:
+    print(BIG_C)
+    BIG_C+=1
+    if BIG_C >= 5:
+        break 
 
-nums = [1, 2, 3, 4, 5]
-
-for num in nums:
-  print(num + 1)
-
+#NESTED LOOPS REFRESH
 for i in range(3):
-  print(i)
+  for j in range(2):
+    print(f"i: {i}, j: {j}")
+#LIST MINI PROJECT
+numbers = [1, 2, 3, 4, 5]
+squares = [x ** 2 for x in numbers]
+print(squares) 
+#FUNCTION PROJECT
+def sum_even_numbers(numbers):
+  total = 0
+  for num in numbers:
+    if num % 2 == 0:
+      total += num
+  return total
+my_numbers = [1, 4, 7, 2, 9, 6]
+result = sum_even_numbers(my_numbers)
+print("Sum of even numbers:", result)
 
-teams = [['KADU', 'LIMA'], ['Abhishek', 'JOHNNY'], ['REGGS', 'RAAA']]
-for team in teams:
-  for name in team:
-    print(name)
+#GUESSING PROJECT
+secret_num = 7
+guess = 3
+while guess > 0:
+    guess = int(input("Guess a number between 1 and 10: "))
+    if guess == secret_num:
+        print("You guessed it!")
+        break
+    elif guess < secret_num:
+        print("Too low!")
+    elif guess > secret_num:
+        print("Too high!")
+    guess -= 1
+    if guess > 10:
+        print("Sorry But Thats TOO HIGH")
+if guess == 0:
+    print("YOU LOST!!!!")
+
+    
