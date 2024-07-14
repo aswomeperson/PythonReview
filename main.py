@@ -168,7 +168,7 @@ while guess > 0:
         print("Sorry But Thats TOO HIGH")
 if guess == 0:
     print("YOU LOST!!!!")
-'''
+
 for ra in range(10):
     if ra == 5:
         break
@@ -200,4 +200,20 @@ def treasurechest():
       print(f"You found a {item}! It's yours to keep.")
 
 treasurechest()
-    
+'''
+def average(number):
+    if not number:
+        print(0)
+    total = sum(number)
+    avg = total / len(number)
+    print(avg)
+num_str = input("enter a list of numbers which are connected by spaces:")
+number = [float(num) for num in num_str.split() ]
+
+try:
+    avg= average(number)
+    print("the average numbers of the entire list is:",avg)
+except ZeroDivisionError:
+    print("cannot generate a empty value of the list ")
+except ValueError:
+    print("pretty plewse only add numbers only ")
