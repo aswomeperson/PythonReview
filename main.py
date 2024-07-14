@@ -318,3 +318,34 @@ base_num = 2
 exp = 5
 result = power(base_num, exp)
 print(base_num, "to the the power of", exp, "equals to",result)
+
+
+#simple factorial 
+def factorial(num):
+    if num == 0:
+        return 1
+    else:
+        return num * factorial(num-1)
+        
+print("the Factorial is",factorial(3))
+
+#Project: Mad Libs
+
+def madlibs(temp):
+    if "(Noun)" in temp:
+        noun = input("Enter a propper noun for the madlib: \n")
+        temp = temp.replace("(Noun)", noun, 1) # So only first time noun come- u replace
+    if "(Adjective)" in temp:
+        adjective = input("Enter a adjective for the madlib: \n")
+        temp = temp.replace("(Adjective)", adjective, 1)
+    if "(Verb)" in temp:
+        verb = input("Enter a verb ending in ing for the madlib: \n")
+        temp = temp.replace("(Verb)",verb,1)
+    #check if everything in the base template is REPLACED
+    if "(Noun)" not in temp and "(Adjective)" not in temp and "(Verb)" not in temp:
+        return temp
+
+exampletemp = "Once upon a time,(Noun) lived hapily in a (Adjective) forest. \n One day a intruder came and so they said its (Verb) time!"
+
+story = madlibs(exampletemp)
+print(story)
