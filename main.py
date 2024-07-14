@@ -203,17 +203,65 @@ treasurechest()
 '''
 def average(number):
     if not number:
-        print(0)
+        return 0  # Return 0 if the list is empty
     total = sum(number)
     avg = total / len(number)
-    print(avg)
-num_str = input("enter a list of numbers which are connected by spaces:")
-number = [float(num) for num in num_str.split() ]
+    return avg  # Return the average
+
+num_str = input("Enter a list of numbers separated by spaces to get the average: ")
+number = [float(num) for num in num_str.split()]
 
 try:
-    avg= average(number)
-    print("the average numbers of the entire list is:",avg)
+    avg = average(number)
+    print("The average of the entire list is:", avg)
 except ZeroDivisionError:
-    print("cannot generate a empty value of the list ")
+    print("Cannot compute the average of an empty list.")
 except ValueError:
-    print("pretty plewse only add numbers only ")
+    print("Please enter valid numbers only.")
+finally:
+    print("This is the final statement")
+#functions
+#Simple Addidition Function
+
+def addnums(num1,num2,num3):
+    sum = num1+num2+num3
+    print(sum) 
+addnums(1,2,3)
+
+#lang function
+def greetings(lan):
+    var = lan.lower()
+    if var == "spanish":
+        print("Hola! Como Estas?")
+    elif var == "french":
+        print("Bonjur!")
+    elif lan == "chinese":
+        print("Ni hao!")
+
+    elif var == "English":
+        print("HOWDY FELLA! HOW YOU DOING?")
+    else:
+        print("Hmm, sorry I only know Spanish, French, Chinese, and English!")
+
+greetings("spanish")
+#Ackerman Function
+def ackermann(m, n, indent=None):
+    if indent is None:
+        indent = 0
+    print(f"{' ' * indent} Ackermann ({m}, {n})")
+
+    if m == 0: 
+        return n + 1
+    elif m > 0 and n == 0:  
+        return ackermann(m - 1, 1, indent + 1)
+    elif m > 0 and n > 0:  
+        return ackermann(m - 1, ackermann(m, n - 1, indent + 1), indent + 1)
+
+print("Starting with m = 1, n = 1:")
+print(ackermann(1, 1))
+
+print("Starting with m = 2, n = 3:")
+print(ackermann(2, 3))
+
+
+#TO DO: MAKE A FACTORIAL FUNCITON
