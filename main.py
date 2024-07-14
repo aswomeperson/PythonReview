@@ -200,7 +200,7 @@ def treasurechest():
       print(f"You found a {item}! It's yours to keep.")
 
 treasurechest()
-'''
+
 def average(number):
     if not number:
         return 0  # Return 0 if the list is empty
@@ -265,3 +265,56 @@ print(ackermann(2, 3))
 
 
 #TO DO: MAKE A FACTORIAL FUNCITON
+'''
+#recursion 
+def reverse_string(s):
+    if len(s) == 0:
+        return s
+    else:
+        return reverse_string(s[1:]) + s[0]
+
+reversed_str = reverse_string("ARCADE HACKATHON")
+print(f"Reversed string: {reversed_str}")
+#GCD Calculator
+def gcd(a,b):
+    if b == 0:
+        return a
+    else:
+        return gcd(a, a%b)
+result = gcd(2, 4)
+print(result)   
+
+def addlist(rst):
+    if len(rst) == 0:
+        return 0
+        #because if a list has 0 in it, it must return 0 right?
+    else:
+        return rst[0] + addlist(rst[1:]) #Starts from the first number [0] and recursivly calls each other one via rst[1:]
+
+examplelist = [2,4,100,92222]
+
+sum = addlist(examplelist)
+print("The sum is:", sum)
+
+def pali(s):
+    if len(s) <= 1:
+        return True
+    else:
+        return s[0] == s[-1] and pali(s[1:-1])
+
+result = pali("KADU")
+print("Is it  a palindrome?",result)
+#find the power somehing
+def power(base, exponent):
+    if exponent == 0:
+        return 1
+        #bcz something to the power of 0 always is 1
+    elif exponent % 2 == 0:
+        return power(base, exponent // 2) ** 2
+    else:
+        return base * power(base, exponent - 1)
+
+base_num = 2
+exp = 5
+result = power(base_num, exp)
+print(base_num, "to the the power of", exp, "equals to",result)
