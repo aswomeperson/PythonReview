@@ -1,3 +1,4 @@
+import pandas as pd 
 '''
 x = 5
 y = "Hello World CHAT"
@@ -265,7 +266,7 @@ print(ackermann(2, 3))
 
 
 #TO DO: MAKE A FACTORIAL FUNCITON
-'''
+
 #recursion 
 def reverse_string(s):
     if len(s) == 0:
@@ -349,3 +350,22 @@ exampletemp = "Once upon a time,(Noun) lived hapily in a (Adjective) forest. \n 
 
 story = madlibs(exampletemp)
 print(story)
+'''
+#Lambda Functions And Importing
+add = [1, 2, 3, 4, 5, 6]
+new_add = list(map(lambda x: x * 2, add))
+print(add) 
+#Make a grading system and change the scores project
+school = pd.DataFrame({
+    'name':['TIMMEH','RAJESH','KADU','Billy','Raj'],
+    'scores': [29,49,99,48]
+})
+double = [0, 4, 8, 12, 16]
+value = [(lambda x: 'odd' if x % 2 else 'even')(x) for x in double]
+print(value) 
+#Using Pandas Librarry to create a data frame
+#calling the variable and going into the scores part of it: df[scores]. By doing this when we return or print df it will update the scores like this. This is useful because if you dont want to edit the code in the function itself you can use it like this
+school['scores'] = school['scores'].apply(lambda y: y* 2)
+print(school)
+#edited JUST the scores part of it by 2
+
