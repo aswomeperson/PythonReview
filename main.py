@@ -370,8 +370,9 @@ print(school)
 #edited JUST the scores part of it by 2
 '''
 #Objects, classes 
-
+#because of the self attriboute, each class can be accessed.
 class Pet:
+#classes are sort of big functions
     def __init__(self, name, species):
         self.name = name
         self.species = species
@@ -383,14 +384,20 @@ class Pet:
             return "HISS HISS!"
         else:
             return "bro idk what to play here"
-
-# Creating objects of the Pet class
+    def make_name(self):
+        if self.name.lower() == "buddy":
+            return("Buddy? Thats a cool name")
+        elif self.name.lower() == "whiskers":
+            return("Whiskers? Now thats a name I haven't heard in a long time....")
+        else:
+            return("Well, Im not sure what your name means,", self.name)
+#sort of defening what my_dog and my_cat are. These are examples
 my_dog = Pet(name="Buddy", species="Dog")
 my_cat = Pet(name="Whiskers", species="Cat")
 
 # Use the objects
 print(f"{my_dog.name} says: {my_dog.make_sound()}")
-print(f"{my_cat.name} says: {my_cat.make_sound()}")
+print(f"{my_cat.make_name()}.What do you say {my_cat.name}? {my_cat.make_sound()} ")
 
 #trying to make a library mini project
 
@@ -404,27 +411,72 @@ class Library:
     def __init__(self):
         self.books = []
 
-    def add_book (self, book):
+    def add_book(self, book):
         self.books.append(book)
-#need help on this part of the code
-    def borrow_book(self, debook_tittle):
+
+    def borrow_book(self, book_title):
         for book in self.books:
             if book.title == book_title and book.available:
-                book.davailable = False
-                print(f"{book.title} borrowed.")
+                book.available = False
+                print(f"{book.title} borrowed successfully.")
                 return
-        print(f"Book '{book_title}' not found or TAKEN HAHAHA.")
+        print(f"Book '{book_title}' not found or already borrowed.")
 
-    def return_book(self, book_title:
+    def return_book(self, book_title):
         for book in self.books:
             if book.title == book_title and not book.available:
                 book.available = True
-                print(f"book.title} returned")
+                print(f"{book.title} returned successfully.")
                 return
         print(f"Book '{book_title}' not found or already returned.")
 
     def display_books(self):
-        print("Books allowed:")
+        print("Available books:")
         for book in self.books:
-            if book.available=
+            if book.available:
                 print(f"- {book.title} by {book.author}")
+
+#using the classes
+my_library = Library()
+book1 = Book("The Great Gatsby", "F. Scott Fitzgerald")
+book2 = Book("To Kill a Mockingbird", "Harper Lee")
+my_library.add_book(book1)
+my_library.add_book(book2)
+my_library.borrow_book("The Great Gatsby")
+my_library.display_books()
+
+#simple auth class
+class User:
+    def __init__(self, user, password, info):
+        self.user = user
+        self.password = password
+        self.info = info
+        self.verified = False
+
+    def verify_user(self):
+        if self.user == "KADU" and self.password == "HelloWorld123":
+            print(f"{self.user} has now logged in. Welcome Back!")
+            self.verified = True
+        elif self.user == "Jimmy123" and self.password == "CrazyJim1992":
+            print(f"{self.user} has now logged in. Welcome Back!")
+            self.verified = True
+        else:
+            print(f"{self.user} or {self.password} is not a valid username or password. Please try again")
+
+    def give_info(self):
+        if self.verified:
+            print(f"Here is your info, {self.user}: {self.info} \n")
+        elif not self.info:
+            print("Please provide some info about yourself!")
+        else:
+            print("Error 405. Hacking Detected")
+
+    def __str__(self):
+        return f"User: {self.user}\nInfo: {self.info}"
+
+# Example of using this class.
+user_1 = User("KADU", "HelloWorld123", "Served In Viet War. Helped People across the world. Also a proud owner of a furball named Whiskers :)")
+user_2 = User("Jimmy123", "CrazyJim1992", " Hey! My name's Jimmy! I'm currently a 24-year-old man working at McDonald's because I didn't get into a certain college. I also own a dog named Buddy!")
+
+print(user_1)
+print(user_2)
