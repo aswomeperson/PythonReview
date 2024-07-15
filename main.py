@@ -350,7 +350,7 @@ exampletemp = "Once upon a time,(Noun) lived hapily in a (Adjective) forest. \n 
 
 story = madlibs(exampletemp)
 print(story)
-'''
+
 #Lambda Functions And Importing
 add = [1, 2, 3, 4, 5, 6]
 new_add = list(map(lambda x: x * 2, add))
@@ -368,4 +368,63 @@ print(value)
 school['scores'] = school['scores'].apply(lambda y: y* 2)
 print(school)
 #edited JUST the scores part of it by 2
+'''
+#Objects, classes 
 
+class Pet:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+
+    def make_sound(self):
+        if self.species.lower() == "dog":
+            return "BARK BARK!"
+        elif self.species.lower() == "cat":
+            return "HISS HISS!"
+        else:
+            return "bro idk what to play here"
+
+# Creating objects of the Pet class
+my_dog = Pet(name="Buddy", species="Dog")
+my_cat = Pet(name="Whiskers", species="Cat")
+
+# Use the objects
+print(f"{my_dog.name} says: {my_dog.make_sound()}")
+print(f"{my_cat.name} says: {my_cat.make_sound()}")
+
+#trying to make a library mini project
+
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.available = True
+
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book (self, book):
+        self.books.append(book)
+#need help on this part of the code
+    def borrow_book(self, debook_tittle):
+        for book in self.books:
+            if book.title == book_title and book.available:
+                book.davailable = False
+                print(f"{book.title} borrowed.")
+                return
+        print(f"Book '{book_title}' not found or TAKEN HAHAHA.")
+
+    def return_book(self, book_title:
+        for book in self.books:
+            if book.title == book_title and not book.available:
+                book.available = True
+                print(f"book.title} returned")
+                return
+        print(f"Book '{book_title}' not found or already returned.")
+
+    def display_books(self):
+        print("Books allowed:")
+        for book in self.books:
+            if book.available=
+                print(f"- {book.title} by {book.author}")
