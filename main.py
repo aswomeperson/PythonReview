@@ -368,7 +368,7 @@ print(value)
 school['scores'] = school['scores'].apply(lambda y: y* 2)
 print(school)
 #edited JUST the scores part of it by 2
-'''
+
 #Objects, classes 
 #because of the self attriboute, each class can be accessed.
 class Pet:
@@ -480,3 +480,56 @@ user_2 = User("Jimmy123", "CrazyJim1992", " Hey! My name's Jimmy! I'm currently 
 
 print(user_1)
 print(user_2)
+'''
+#Constructors and Deconstructors
+#Simple Little Code on How it Works:
+class Colledgeclass:
+   def __init__(self, course):
+       self.course = course
+#code for removing
+   def __del__(self):
+       print('Removing Your College Class')
+
+# create a colledgeclass object
+sched = Colledgeclass('COLLEGE CLASS OF COMPUTER SCIENCE!')
+# delete the ColledgeClass object
+del sched
+
+#Now Sort of a Project on foundations
+class BuildingFoundation:
+    def __init__(self, material):
+        self.material = material
+        self.strength = 100
+        self.blueprint = []
+
+    def reinforce(self, additional_strength):
+        self.strength += additional_strength
+
+    def deconstruct(self):
+        self.strength -= 20
+        if self.strength < 0:
+            print("Warning: Foundation integrity compromised!")
+
+    def add_blueprint(self, component):
+        self.blueprint.append(component)
+
+    def build(self):
+        if self.strength >= 80 and self.blueprint:
+            print(f"Constructing a {self.material} skyscraper!")
+            print("Blueprint components:")
+            for component in self.blueprint:
+                print(f" - {component}")
+        else:
+            print("Not enough strength or missing blueprint components. Reinforce or plan first.")
+#building one foundation
+old_foundation = Foundation(material="concrete")
+# Reinforce 
+old_foundation.reinforce(additional_strength=30)
+# Add blueprint 
+old_foundation.add_blueprint("Elevator")
+old_foundation.add_blueprint("Water Fountain")
+old_foundation.add_blueprint("Green rooftop bar and restraunt")
+#Deconstruct
+old_foundation.deconstruct()
+#Now Build
+old_foundation.build()
