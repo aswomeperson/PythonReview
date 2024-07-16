@@ -486,7 +486,7 @@ user_2 = User("Jimmy123", "CrazyJim1992", " Hey! My name's Jimmy! I'm currently 
 
 print(user_1)
 print(user_2)
-'''
+
 #Constructors and Deconstructors
 #Simple Little Code on How it Works:
 
@@ -570,3 +570,53 @@ class Car:
 model_3 = Car("Sedan", 5)
 model_3.drive(50)
 model_3.refuel(20)
+'''
+
+#encapsulation
+class InfoUser:
+   def __init__(self, user, email):
+      self.user = user
+      self.email = email
+
+   def check_username(self, username_to_check):
+       if username_to_check == self.user:
+           return True
+       else:
+           return False
+
+user = InfoUser('user1212', 'jaja@gmil.i')
+
+print(user.check_username('user1212')) # returns True
+print(user.check_username('useerrrrrrr')) # returns False
+
+class BankAccount:
+    def __init__(self, account, starting_balance):
+        self.account = account
+        self.starting_balance = starting_balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.starting_balance += amount
+            print(f"Gave ${amount}. New balance: ${self.starting_balance}")
+        else:
+            print("Not Valid  amount.")
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.starting_balance:
+            self.starting_balance -= amount
+            print(f"Withdrew ${amount}. New balance of money: ${self.starting_balance}")
+        else:
+            print("NOT ENOUGH FUNDS OR INVALID AMMOUNT!!!")
+
+    def get_balance(self):
+        return self.starting_balance
+
+#USING IT
+if __name__ == "__main__":
+    my_account = BankAccount("Kadu", 1000)
+    print(f"Account holding: {my_account.account}")
+    print(f"Starting balance: ${my_account.get_balance()}")
+
+    my_account.deposit(200)
+    my_account.withdraw(150)
+    print(f"BalanCE: ${my_account.get_balance()}")
