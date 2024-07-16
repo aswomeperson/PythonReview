@@ -364,6 +364,7 @@ double = [0, 4, 8, 12, 16]
 value = [(lambda x: 'odd' if x % 2 else 'even')(x) for x in double]
 print(value) 
 #Using Pandas Librarry to create a data frame
+
 #calling the variable and going into the scores part of it: df[scores]. By doing this when we return or print df it will update the scores like this. This is useful because if you dont want to edit the code in the function itself you can use it like this
 school['scores'] = school['scores'].apply(lambda y: y* 2)
 print(school)
@@ -433,16 +434,21 @@ class Library:
     def display_books(self):
         print("Available books:")
         for book in self.books:
+        
             if book.available:
                 print(f"- {book.title} by {book.author}")
 
 #using the classes
+
 my_library = Library()
 book1 = Book("The Great Gatsby", "F. Scott Fitzgerald")
+
 book2 = Book("To Kill a Mockingbird", "Harper Lee")
 my_library.add_book(book1)
+
 my_library.add_book(book2)
 my_library.borrow_book("The Great Gatsby")
+
 my_library.display_books()
 
 #simple auth class
@@ -483,46 +489,49 @@ print(user_2)
 '''
 #Constructors and Deconstructors
 #Simple Little Code on How it Works:
-class Colledgeclass:
-   def __init__(self, course):
-       self.course = course
+
+class Colledge:
+    def __init__(self,course):
+        self.course = course
+        print(course)
 #code for removing
-   def __del__(self):
+    def __del__(self):
        print('Removing Your College Class')
 
 # create a colledgeclass object
-sched = Colledgeclass('COLLEGE CLASS OF COMPUTER SCIENCE!')
+sched = Colledge('COLLEGE CLASS OF COMPUTER SCIENCE!')
 # delete the ColledgeClass object
+#New sched
 del sched
+#Now Sort of a Project on foundations of a building
 
-#Now Sort of a Project on foundations
 class BuildingFoundation:
     def __init__(self, material):
-        self.material = material
-        self.strength = 100
+        self.material = material #can be accessed outside of the class
+        self.strength = 100 
         self.blueprint = []
-
+        self._secret = "This is a secret message...." #No be accesed outside because of "_"_
     def reinforce(self, additional_strength):
         self.strength += additional_strength
 
     def deconstruct(self):
         self.strength -= 20
         if self.strength < 0:
-            print("Warning: Foundation integrity compromised!")
+            print("Warning:Building MIGHT FALL. CODE RED")
 
     def add_blueprint(self, component):
         self.blueprint.append(component)
 
     def build(self):
         if self.strength >= 80 and self.blueprint:
-            print(f"Constructing a {self.material} skyscraper!")
-            print("Blueprint components:")
+            print(f"Making a {self.material} skyscraper!")
+            print("components:")
             for component in self.blueprint:
                 print(f" - {component}")
         else:
             print("Not enough strength or missing blueprint components. Reinforce or plan first.")
-#building one foundation
-old_foundation = Foundation(material="concrete")
+#Declare #old_foundation
+old_foundation = BuildingFoundation("Monkey Soil")
 # Reinforce 
 old_foundation.reinforce(additional_strength=30)
 # Add blueprint 
@@ -533,3 +542,31 @@ old_foundation.add_blueprint("Green rooftop bar and restraunt")
 old_foundation.deconstruct()
 #Now Build
 old_foundation.build()
+
+#Acess Modifications
+new_foundation = BuildingFoundation("Galvanized Metal Pipes")#Initalize the Function
+print(new_foundation.material)#Accessing The Material of the Foundation Class OUTSIDE of the class.
+
+#car mini project
+
+class Car:
+    def __init__(self, car, seating):
+        self.car = car  # Public object
+        self._mileage = 0  # Private object
+        self.__fuel_level = 100  # Private object
+
+    def drive(self, distance):
+        self._mileage += distance
+        print(f"Driven {distance} miles. Total mileage: {self._mileage}")
+
+    def refuel(self, amount):
+        self.__fuel_level += amount
+        print(f"Refueled by {amount} units. Fuel level: {self.__fuel_level}%")
+
+    def __del__(self):
+        print("Car object destroyed.")
+
+# Example usage:
+model_3 = Car("Sedan", 5)
+model_3.drive(50)
+model_3.refuel(20)
