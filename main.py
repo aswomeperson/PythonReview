@@ -624,7 +624,7 @@ if __name__ == "__main__":
     
     print(f"BalanCE: ${my_account.get_balance()}")
     
-'''
+
 #Inheritation
 
 import random
@@ -651,3 +651,45 @@ myEpicGuy = Job("John Lather", 49, "")
 myEpicGuy.random_job()
 
 myEpicGuy.print_info()
+'''
+#Polymorphism, ect.
+
+class Animal:
+    def speak(self):
+        raise NotImplementedError("PUT IN THE SUBCLASS BRO!")
+
+class Dog(Animal):
+    def speak(self):
+        print("Bark BARK!")
+
+class Cat(Animal):
+    def speak(self):
+        print("HISS HISS!!!1")
+
+dog_instance = Dog()
+cat_instance = Cat()
+#make them say stuff
+print(dog_instance.speak())  
+print(cat_instance.speak())  
+
+class Check():
+   def type(self):
+       print('You have a checking account at the Royal English Arcade.')
+
+   def balance(self):
+       print('$20 left, brokie!')
+
+class Save():
+   def type(self):
+       print('You have a savings account at the Royal French Arcade')
+
+   def balance(self):
+       print('$1000 left in your savings.')
+
+
+account_a = Check()
+account_b = Savings()
+#runs the balance and type.
+for account in (account_a, account_b):
+   account.type()
+   account.balance()
