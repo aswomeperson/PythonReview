@@ -1,4 +1,5 @@
 import pandas as pd 
+import random
 '''
 x = 5
 y = "Hello World CHAT"
@@ -570,7 +571,7 @@ class Car:
 model_3 = Car("Sedan", 5)
 model_3.drive(50)
 model_3.refuel(20)
-'''
+
 
 #encapsulation
 class InfoUser:
@@ -618,5 +619,35 @@ if __name__ == "__main__":
     print(f"Starting balance: ${my_account.get_balance()}")
 
     my_account.deposit(200)
+    
     my_account.withdraw(150)
+    
     print(f"BalanCE: ${my_account.get_balance()}")
+    
+'''
+#Inheritation
+
+import random
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def print_info(self):
+        print(f"HERE IS YOUR JOB AND CAREER PERSOn. NAME: {self.name} AGE: {self.age} JOB: {self.prof}")
+
+class Job(Person):
+    def __init__(self, name, age, prof):
+        super().__init__(name, age)
+        self.prof = prof
+
+    def random_job(self):
+        job_titles = ["Software Engineer", "Data Scientist", "Teacher at Harvard", "Janitor at Tacobell :("]
+        self.prof = random.choice(job_titles)
+
+myEpicGuy = Job("John Lather", 49, "")
+
+myEpicGuy.random_job()
+
+myEpicGuy.print_info()
