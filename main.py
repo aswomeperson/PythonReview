@@ -688,8 +688,54 @@ class Save():
 
 
 account_a = Check()
-account_b = Savings()
+account_b = Save()
 #runs the balance and type.
 for account in (account_a, account_b):
    account.type()
    account.balance()
+
+#A better animal Sound OOP Function or class
+
+class Animal_Sounds:
+    def type(self):
+        raise NotImplementedError("Not in subclass")
+
+class Tiger(Animal_Sounds):
+    def speak(self):
+        return "ROARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"
+
+class Lion(Animal_Sounds):
+    def speak(self):
+        return "Lion Roar"
+
+class Sheep(Animal_Sounds):
+    def speak(self):
+        return "Mehhhhh"
+
+class Cow(Animal_Sounds):
+    def speak(self):
+        return "Moooooo"
+
+class Make_Sound:
+    def sound(self, animal, sound):
+        if animal == "" or sound == "":
+            print("Cannot put Animal or Sound as empty.")
+        else:
+            print(f"The {animal} goes {sound}")
+
+# Create alll the animals
+tiger = Tiger()
+lion = Lion()
+sheep = Sheep()
+cow = Cow()
+
+#make all of the animals speak
+print(tiger.speak())
+print(lion.speak())
+print(sheep.speak())
+print(cow.speak())
+
+#Sound
+sound = Make_Sound()
+sound.sound("Mushroom Cow", "Moooshrooooom")
+
