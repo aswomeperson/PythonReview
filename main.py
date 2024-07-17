@@ -651,7 +651,7 @@ myEpicGuy = Job("John Lather", 49, "")
 myEpicGuy.random_job()
 
 myEpicGuy.print_info()
-'''
+
 #Polymorphism, ect.
 
 class Animal:
@@ -738,4 +738,51 @@ print(cow.speak())
 #Sound
 sound = Make_Sound()
 sound.sound("Mushroom Cow", "Moooshrooooom")
+'''
+#String Methods
 
+stringexample= "Hello World after 74` lines of code!"
+
+print(stringexample[0])
+
+#prints the first letter of the string.
+
+print(stringexample[0:5])
+#prints from first letter to 5th 
+
+print(stringexample.split(" "))#splits and remove the space
+
+#Mini project
+
+class Textprocess:
+    def __init__(self, text):
+        self.text = text
+
+    def to_upper(self):
+        print(self.text.upper())
+
+    def to_lower(self):
+        print(self.text.lower())
+
+    def count_vowels(self):
+        vowels = 'aieou'
+        return sum(1 for char in self.text.lower() if char in vowels)
+
+    def reverse_text(self):
+        return self.text[::-1]
+
+    def is_palindrome(self):
+        cleaned_text = ''.join(char.lower() for char in self.text if char.isalnum())
+        return cleaned_text == cleaned_text[::-1]
+
+#rUn the ufncition. Sorry I meant function
+
+sample_text = "A man, a plan, a canal, Panama"
+processor = Textprocess(sample_text)
+
+print("OG Text:", processor.text)
+print("turnuppercase:", processor.to_upper())
+print("LOWERCASE:", processor.to_lower())
+print("how many vowels Count:", processor.count_vowels())
+print("Reversed Racecar :)", processor.reverse_text())
+print("PALIDROMEEEE", processor.is_palindrome())
