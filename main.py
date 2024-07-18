@@ -738,7 +738,7 @@ print(cow.speak())
 #Sound
 sound = Make_Sound()
 sound.sound("Mushroom Cow", "Moooshrooooom")
-'''
+
 #String Methods
 
 stringexample= "Hello World after 74` lines of code!"
@@ -786,3 +786,27 @@ print("LOWERCASE:", processor.to_lower())
 print("how many vowels Count:", processor.count_vowels())
 print("Reversed Racecar :)", processor.reverse_text())
 print("PALIDROMEEEE", processor.is_palindrome())
+'''
+
+#Factorial Input
+#not premade function
+
+def FactorialFunction(number):
+    result = 1
+    for i in range(1,number+1):
+        
+        result *= i
+        
+        print(result)
+
+#RUNNING MY TESTS
+FactorialFunction(4)
+
+FactorialFunction(5)
+
+FactorialFunction(6)
+
+FactorialFunction(10000)
+FactInput = input("Enter A Number to get factorial")
+
+FactorialFunction(int(FactInput))
