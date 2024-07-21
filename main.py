@@ -1,5 +1,5 @@
-import pandas as pd 
-import random
+#CODE FOR PROJECT WITH A SEARCH METHOD, SO USER CAN DOWNLOAD THE FILES(JUST MAIN.PY) 
+
 
 def unit1():
     # beginner stuff doing again- refreshing my memory
@@ -20,14 +20,9 @@ def unit1():
     # common name generator
     # with only 4 premade names
     names = ["dave", "ragreh", "jimmy", "timmy"]
-    a = b = c = d = names
-    random_num = input("enter a number to get your premade name(0-4):")
+    random_num = input("enter a number to get your premade name(0-3):")
     x = int(random_num)
-    print(names[0 + x])
-
-    def main():
-        print("this is text coming from the main function of the program!")
-        secondary_function()
+    print(names[x])
 
     # python operators/calculator
     basic = float(input("enter a number:"))
@@ -40,12 +35,24 @@ def unit1():
     elif logic == "*":
         print(basic * basic2)
     elif logic == "/":
-        print(basic / basic2)
-    elif basic2 == 0 and basic == 0 and logic == "/":
-        print("error. please restart program fool")
+        if basic2 != 0:
+            print(basic / basic2)
+        else:
+            print("error. division by zero")
     else:
         print("please put in a valid operator! (+,-,*,/)")
         logic = input("add operator(+,-,*,/):")
+        if logic == "+":
+            print(basic + basic2)
+        elif logic == "-":
+            print(basic - basic2)
+        elif logic == "*":
+            print(basic * basic2)
+        elif logic == "/":
+            if basic2 != 0:
+                print(basic / basic2)
+            else:
+                print("error. division by zero")
     print(logic)
 
 def unit2():
@@ -68,6 +75,9 @@ def unit2():
         elif c1 == "watch":
             print("You go and try to watch TV with Gizmo, clearly interested in whatever he is doing but he sees you and jumps in fear. 'AHhhhh!' He grabs his shotgun and shoots you, but he missed! You run and scamper off... \n")
             condition = 1
+        else:
+            print("Choose the two options!")
+            choice1()
     choice1()
 
     def choice2():
@@ -79,14 +89,19 @@ def unit2():
                 condition = 2
             elif c1 == "right":
                 print("You chose the right food. Unfortunately, it was poisoned. Game over. \n")
+            else:
+                print("Choose the two options!")
+                choice2()
         elif condition == 1:
             c2 = input("You run, but Gizmo catches up to you until you are cornered. You realize that there is no escape so you only have a option to fight. You see salt next to you and realize you can blow the dust into his eyes and mouth, temporarily restraining him. You look to your right and see a knife. What will you use? (knife/salt) \n")
             if c2 == "knife":
                 print("You grab the knife that is 10 times bigger than you and charge at Gizmo, like a true warrior. You imagine defeating him as victory comes closer to you. Oh yeah I forgot to mention the catch- you NEVER bring a knife to a gunfight. As soon as you're in range he clicks the trigger and you are vaporized. I would have said 'Game Over' but I'm in Shock. \n")
             elif c2 == "salt":
                 print("You grab the salt and throw it at Gizmo's eyes and mouth. He is confused for a second but then the pain hits him. Then you attack him so badly I can't even describe it. You Won - THE VICIOUS ENDING \n")
+            else:
+                print("Choose the two options!")
+                choice2()
     choice2()
-
     # The LAST choice
     def choice3():
         global condition
@@ -260,9 +275,10 @@ def unit3():
 
     print("The factorial is", factorial(3))
 
-def unit4():
-    import pandas as pd
 
+
+
+def unit4():
     # Mad Libs Project
     def madlibs(temp):
         while "(Noun)" in temp:
@@ -287,16 +303,15 @@ def unit4():
     print(new_add)
 
     # Make a grading system and change the scores project
-    school = pd.DataFrame({
+    school = {
         'name': ['TIMMEH', 'RAJESH', 'KADU', 'Billy', 'Raj'],
         'scores': [29, 49, 99, 48]
-    })
+    }
     double = [0, 4, 8, 12, 16]
-    value = [(lambda x: 'odd' if x % 2 else 'even')(x) for x in double]
+    value = ['odd' if x % 2 else 'even' for x in double]
     print(value)
 
-    # Using Pandas Library to create a data frame
-    school['scores'] = school['scores'].apply(lambda y: y * 2)
+    school['scores'] = [score * 2 for score in school['scores']]
     print(school)
 
     # Objects, classes
@@ -376,8 +391,6 @@ def unit4():
     my_library.display_books()
 
 def unit5():
-    import pandas as pd
-
     # Simple auth class
     class User:
         def __init__(self, user, password, info):
@@ -474,8 +487,6 @@ def unit5():
     print(new_foundation.material)  # Accessing the material of the Foundation class outside of the class
 
 def unit6():
-    import random
-
     # Car mini project
     class Car:
         def __init__(self, car, seating):
@@ -560,7 +571,7 @@ def unit6():
 
         def random_job(self):
             job_titles = ["Software Engineer", "Data Scientist", "Teacher at Harvard", "Janitor at Tacobell :("]
-            self.prof = random.choice(job_titles)
+            self.prof = job_titles[0]  # Simple selection logic
 
     myEpicGuy = Job("John Lather", 49, "")
     myEpicGuy.random_job()
@@ -675,12 +686,16 @@ class search_input:
         self.input = input
         if self.input == "":
             print("Please give a valid unit. Example: unit1()")
-        else:
+
+        elif self.input.lower() == "help":
+            print("unit 1 is on the basic foundations, unit 2 is on functions, objects within in it and if and else statements, unit 3 is more on arthimetic series and more.  Unit 4 is on lambda functions, classes and objects going more in depth on unit 2. Unit 5 is on constructors, deconstructors, access modifications and other ways to modify classes and functions. Unit 6 goes more into classes, polymorphism, Inheritence, Objects and other topics that are harder to rebuild foundations on. Unit 7 is just sort of on different projects, and kind of a wrap up of mostly everything. \n, Run program to run the search again. \n")
+                        
+        elif input in self.unit_functions:
             if input in self.unit_functions:
                 print(f"Succesfully found {input}: \n")
-                self.unit_functions[input]()
-            else:
-                print("not valid. Example( unit1() )")
+            self.unit_functions[input]()
+        else:
+            print("not valid. Example( unit1() )")
 units = {
     "unit1()":unit1,
     "unit2()":unit2,
@@ -691,7 +706,7 @@ units = {
     "unit7()":unit7,
 }
 searcher = search_input(units)
-
-searching = input("Enter a unit to run whats inside of it. Starts from easy stuff to hardest. Example: unit1() \n")
+print("Welcome to the unit searcher. Type 'help' to see what each units about and also see more commands. Made this instead of traditional UI, because it looks cooler!\n")
+searching = input("Enter a unit to run whats inside of it or a custom command. Starts from units that are easy stuff which progressively turns harder(units 1-7). Example: unit1() \n")
 
 searcher.search(searching)
