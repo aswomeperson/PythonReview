@@ -10,7 +10,12 @@ def unit1():
 
     x = str(3)
     x = int(4)
-    x = float(3)
+    x = float(
+        
+        
+        
+        
+        3)
     print(type(x))
 
     names = ["john", "rajesh", "lina"]
